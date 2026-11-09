@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Nutbolt</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="admin">
+  <div id="site-header"></div>
+
+  <div class="container dash-wrap">
+    <div class="dash-top">
+      <div>
+        <span class="kicker">Store control</span>
+        <h1>Admin control room</h1>
+        <p>Manage all bookings and the live fastener inventory.</p>
+      </div>
+      <div class="dash-actions">
+        <a class="btn btn-ghost" href="index.html">View storefront</a>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="k-l">Total bookings</div><div class="k-v accent" id="kpiBookings">0</div></div>
+      <div class="kpi-card"><div class="k-l">Revenue</div><div class="k-v green" id="kpiRevenue">₹0</div></div>
+      <div class="kpi-card"><div class="k-l">Pending</div><div class="k-v cyan" id="kpiPending">0</div></div>
+      <div class="kpi-card"><div class="k-l">Custom products</div><div class="k-v" id="kpiCustom">0</div></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="bookings">Bookings</button>
+      <button class="tab" data-tab="inventory">Inventory</button>
+    </div>
+
+    <!-- ===== BOOKINGS ===== -->
+    <section id="tab-bookings">
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th><th>Customer</th><th>Contact</th><th>Items</th>
+              <th>Total</th><th>Method</th><th>Status</th><th>Date</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== INVENTORY ===== -->
+    <section id="tab-inventory" class="hidden">
+      <div class="inventory-grid">
+        <div class="panel inv-form">
+          <div class="panel-title"><span class="pn">＋</span> Add to inventory</div>
+          <div class="field">
+            <label>Product name</label>
+            <input id="pName" type="text" placeholder="e.g. SS 316 Flange Bolt" />
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Category</label><select id="pCategory"></select></div>
+            <div class="field"><label>Size</label><select id="pSize"></select></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Material</label><select id="pMaterial"></select></div>
+            <div class="field"><label>Price / piece (₹)</label><input id="pPrice" type="number" min="0.01" step="0.01" placeholder="0.00" /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Stock (pcs)</label><input id="pStock" type="number" min="0" step="1" placeholder="100" /></div>
+            <div class="field"><label>Weight / piece (g)</label><input id="pWeight" type="number" min="1" step="1" placeholder="20" /></div>
+          </div>
+          <button class="btn btn-block" id="addProductBtn">Add to live catalog</button>
+          <div class="hint" style="margin-top:10px">New products appear instantly on the storefront catalog.</div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><span class="pn">📦</span> Custom products</div>
+          <div class="table-wrap" style="margin-bottom:18px">
+            <table class="data-table" style="min-width:0">
+              <thead><tr><th>Product</th><th>Category</th><th>Size</th><th>Material</th><th>Price</th><th>Stock</th><th></th></tr></thead>
+              <tbody id="customBody"></tbody>
+            </table>
+          </div>
+
+          <div class="hike-box">
+            <h4>⚡ Global price management</h4>
+            <p>Raise prices across stainless steel (SS) products in one click — useful when raw material costs move. Custom products are included.</p>
+            <div class="row">
+              <div class="field"><label>Hike (%)</label><input id="hikePct" type="number" min="0.5" max="50" step="0.5" value="5" /></div>
+              <button class="btn btn-sm" id="hikeBtn">Apply to all SS products</button>
+              <button class="btn btn-ghost btn-sm" id="resetPricesBtn">Reset prices</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

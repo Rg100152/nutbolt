@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — Nutbolt</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="dashboard">
+  <div id="site-header"></div>
+
+  <div class="container dash-wrap">
+    <div class="dash-top">
+      <div>
+        <span class="kicker">My account</span>
+        <h1>My dashboard</h1>
+        <p id="welcomeLine">Welcome back.</p>
+      </div>
+      <div class="dash-actions">
+        <a class="btn" href="index.html#catalog">+ New booking</a>
+        <button class="btn btn-ghost" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="k-l">Total bookings</div><div class="k-v accent" id="kpiTotal">0</div></div>
+      <div class="kpi-card"><div class="k-l">Pending</div><div class="k-v" id="kpiPending">0</div></div>
+      <div class="kpi-card"><div class="k-l">Completed</div><div class="k-v green" id="kpiCompleted">0</div></div>
+      <div class="kpi-card"><div class="k-l">Total spent</div><div class="k-v cyan" id="kpiSpent">₹0</div></div>
+    </div>
+
+    <div class="catalog-head" style="margin-bottom:18px">
+      <div>
+        <h2 style="font-size:22px">My bookings</h2>
+        <p class="muted small">Track and manage the orders placed with this account.</p>
+      </div>
+    </div>
+
+    <div class="booking-list" id="bookingList"></div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

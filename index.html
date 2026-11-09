@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutbolt — Industrial Nuts, Bolts &amp; Fasteners</title>
+  <meta name="description" content="Book industrial-grade nuts, bolts, screws and washers online. Bulk pricing, GST invoices and same-day dispatch. by Raj Gautam." />
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">● Trusted by 2,400+ workshops</span>
+          <h1>The complete range of <span class="grad">nuts, bolts &amp; fasteners</span></h1>
+          <p class="lead">Industrial-grade fasteners delivered to your workshop. Search by size, material and grade — then book in bulk with transparent tiered pricing and GST invoices.</p>
+          <div class="hero-cta">
+            <a class="btn btn-lg" href="#catalog">Browse Catalog →</a>
+            <a class="btn btn-ghost btn-lg" href="#bulk">Bulk Rates</a>
+          </div>
+          <div class="hero-mini-stats">
+            <div><div class="n">50<span>+</span></div><div class="l">SKUs in stock</div></div>
+            <div><div class="n">SS 304<span>/316</span></div><div class="l">Marine-grade options</div></div>
+            <div><div class="n">24<span>hr</span></div><div class="l">Dispatch on orders</div></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="glow"></div>
+          <div class="plate">
+            <span class="ring"></span>
+            <span class="ring r2"></span>
+            <img src="images/hero-product.png" alt="Assorted nuts and bolts" />
+          </div>
+          <div class="hero-tag t1"><span class="ico">🔩</span><div>M8 Hex Bolt<small>SS 304 · In stock</small></div></div>
+          <div class="hero-tag t2"><span class="ico">🧾</span><div>GST Invoice<small>Ready for B2B buyers</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat-cell"><span class="ico">📦</span><div><div class="n">Same-day</div><div class="l">Local dispatch</div></div></div>
+        <div class="stat-cell"><span class="ico">🏷️</span><div><div class="n">Up to 10%</div><div class="l">Bulk volume discount</div></div></div>
+        <div class="stat-cell"><span class="ico">🧪</span><div><div class="n">IS / DIN</div><div class="l">Standard tested grades</div></div></div>
+        <div class="stat-cell"><span class="ico">🔒</span><div><div class="n">Secure</div><div class="l">Simulated checkout</div></div></div>
+      </div>
+    </section>
+
+    <!-- ================= CATEGORIES ================= -->
+    <section class="section section-alt" id="categories">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Shop by category</span>
+          <h2>Every fastener, one catalog</h2>
+          <p>From precision socket bolts to heavy concrete anchors — pick a category to jump straight to the right shelf.</p>
+        </div>
+        <div class="circle-grid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= CATALOG ================= -->
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="catalog-head reveal">
+          <div>
+            <span class="kicker">Live catalog</span>
+            <h2>Industrial fasteners catalog</h2>
+            <p>Compare specs, materials and live pricing across the full range.</p>
+          </div>
+          <span class="count-badge" id="countBadge">Showing <b>50</b> products</span>
+        </div>
+
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="s-ico">🔍</span>
+            <input id="searchInput" type="search" placeholder="Search products (e.g. hex bolt, M8, SS 304, washer)…" autocomplete="off" />
+            <button class="s-clear" id="searchClear" aria-label="Clear search">✕</button>
+          </div>
+          <div class="select-wrap">
+            <select id="materialFilter" aria-label="Filter by material">
+              <option value="all">All materials</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select id="sizeFilter" aria-label="Filter by size">
+              <option value="all">All sizes</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select id="sortFilter" aria-label="Sort products">
+              <option value="featured">Sort: Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Top rated</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="chip-row" id="chipRow"></div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= BULK CALCULATOR ================= -->
+    <section class="section section-alt" id="bulk">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Bulk pricing</span>
+          <h2>Volume calculator</h2>
+          <p>Slide the quantity to see how tiered pricing rewards bigger orders. Discounts apply automatically at checkout.</p>
+        </div>
+        <div class="calc-grid reveal">
+          <div class="calc-panel">
+            <h3>Estimate your bulk order</h3>
+            <p class="sub">Choose a category and drag the quantity. We calculate the per-piece rate, tier discount, GST and shipping.</p>
+            <div class="field">
+              <label for="bcCategory">Product category</label>
+              <select id="bcCategory"></select>
+            </div>
+            <div class="field">
+              <label>Quantity (pieces)</label>
+              <div class="range-row">
+                <input type="range" id="bcQty" min="100" max="5000" step="50" value="500" />
+                <span class="range-value" id="bcQtyLabel">500</span>
+              </div>
+              <div class="hint">Gold tier starts at ₹5,000 · Platinum tier at ₹10,000</div>
+            </div>
+            <button class="btn btn-block" id="bcAdd">Add bundle to cart</button>
+          </div>
+          <div class="calc-result">
+            <div class="tier-badge" id="bcTier">Standard Rate</div>
+            <div class="big-price" id="bcTotal">₹0.00</div>
+            <div class="per" id="bcPer">per piece</div>
+            <div class="calc-lines">
+              <div class="calc-line"><span>Selected product</span><b id="bcName">—</b></div>
+              <div class="calc-line"><span>Unit rate</span><b id="bcUnit">₹0.00 / pc</b></div>
+              <div class="calc-line"><span>Subtotal</span><b id="bcSub">₹0.00</b></div>
+              <div class="calc-line save"><span>Bulk discount</span><b id="bcDisc">−₹0.00</b></div>
+              <div class="calc-line"><span>GST (18%)</span><b id="bcGst">₹0.00</b></div>
+              <div class="calc-line"><span>Est. shipping</span><b id="bcShip">₹0.00</b></div>
+            </div>
+            <div class="spacer"></div>
+            <div class="calc-line" style="font-size:16px;color:var(--text)"><span><b>Total payable</b></span><b id="bcGrand" style="color:var(--accent)">₹0.00</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">How it works</span>
+          <h2>From shelf to workshop in 3 steps</h2>
+          <p>No account needed to browse. Checkout in under two minutes with a GST invoice.</p>
+        </div>
+        <div class="steps reveal">
+          <div class="step-card"><span class="step-num">01</span><div class="step-ico">🔍</div><h3>Find your fastener</h3><p>Search or filter by category, material and size to find the exact spec you need.</p></div>
+          <div class="step-card"><span class="step-num">02</span><div class="step-ico">🛒</div><h3>Build your order</h3><p>Add items to the cart with live tiered pricing, GST and weight-based shipping.</p></div>
+          <div class="step-card"><span class="step-num">03</span><div class="step-ico">🚚</div><h3>Book &amp; receive</h3><p>Pay securely, get a booking ID and track dispatch from your dashboard.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT / FEATURES ================= -->
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Why Nutbolt</span>
+          <h2>Built for real industrial buyers</h2>
+          <p>Mechanics, fabricators and factory procurement teams get the specs and paperwork they actually need.</p>
+        </div>
+        <div class="feature-grid reveal">
+          <div class="feature-card"><div class="f-ico">🧾</div><h4>GST invoices</h4><p>Add your GSTIN at checkout for B2B input-credit-ready billing.</p></div>
+          <div class="feature-card"><div class="f-ico">🏷️</div><h4>Tiered pricing</h4><p>Automatic 5% and 10% discounts as your order value grows.</p></div>
+          <div class="feature-card"><div class="f-ico">⚖️</div><h4>Weight-aware shipping</h4><p>Delivery charges calculated from the real weight of your fasteners.</p></div>
+          <div class="feature-card"><div class="f-ico">🔩</div><h4>Verified grades</h4><p>MS, SS 304, SS 316, brass and nylon clearly labelled on every SKU.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Customer stories</span>
+          <h2>Trusted on the shop floor</h2>
+        </div>
+        <div class="testi-grid reveal">
+          <div class="testi-card"><div class="q">★★★★★</div><p>“Bulk M8 hex bolts arrived next morning with a proper GST invoice. The tier pricing saved our workshop nearly ₹4,000 on one order.”</p><div class="testi-user"><img class="testi-avatar" src="images/product-2.png" alt="" /><div><b>Anil Kumar</b><small>Auto workshop · Pune</small></div></div></div>
+          <div class="testi-card"><div class="q">★★★★★</div><p>“The size and material filters make it easy to order the exact SS 316 spec for our marine fittings. No more guessing part numbers.”</p><div class="testi-user"><img class="testi-avatar" src="images/product-5.png" alt="" /><div><b>Priya Nair</b><small>Fabrication unit · Kochi</small></div></div></div>
+          <div class="testi-card"><div class="q">★★★★☆</div><p>“Clean ordering flow and the bulk calculator is genuinely useful. We now standardise all our washer and nut procurement here.”</p><div class="testi-user"><img class="testi-avatar" src="images/product-8.png" alt="" /><div><b>Rahul Verma</b><small>Maintenance lead · Delhi</small></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="section tight" id="contact">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2>Need a custom fastener spec?</h2>
+            <p>Tell us your size, grade and quantity — our team will source it and ship it. Bulk buyers get dedicated support.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn btn-lg" href="booking.html">Book an Order</a>
+            <a class="btn btn-ghost btn-lg" href="tel:+919896000000">📞 Call Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

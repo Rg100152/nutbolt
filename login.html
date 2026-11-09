@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Nutbolt</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="login">
+  <div id="site-header"></div>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-head">
+        <a class="brand" href="index.html">
+          <img src="images/logo.png" alt="Nutbolt logo" />
+          <span class="brand-text"><strong>NUT<em>BOLT</em></strong><small>Fasteners &amp; Fittings</small></span>
+        </a>
+        <h1>Welcome back</h1>
+        <p>Sign in to book fasteners and track your orders.</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="field" id="f-name">
+          <label>Full name <span class="req">*</span></label>
+          <input id="lName" type="text" placeholder="e.g. Raj Gautam" autocomplete="name" />
+          <div class="err">Please enter your name.</div>
+        </div>
+        <div class="field" id="f-email">
+          <label>Email <span class="req">*</span></label>
+          <input id="lEmail" type="email" placeholder="you@workshop.com" autocomplete="email" />
+          <div class="err">Enter a valid email address.</div>
+        </div>
+        <div class="field-row">
+          <div class="field" id="f-phone">
+            <label>Phone <span class="req">*</span></label>
+            <input id="lPhone" type="tel" placeholder="10-digit mobile" autocomplete="tel" />
+            <div class="err">Enter a valid 10-digit phone.</div>
+          </div>
+          <div class="field" id="f-pass">
+            <label>Password <span class="req">*</span></label>
+            <input id="lPass" type="password" placeholder="••••••" autocomplete="current-password" />
+            <div class="err">Use at least 4 characters.</div>
+          </div>
+        </div>
+        <button class="btn btn-lg btn-block" type="submit" id="loginBtn" style="margin-top:10px">Sign in</button>
+      </form>
+
+      <div class="auth-demo">Demo mode — any valid details work. Nothing is sent to a server.</div>
+      <p class="auth-alt">New here? Just fill the form — an account is created automatically.</p>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

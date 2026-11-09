@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Nutbolt</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="booking">
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Checkout</span>
+      <h1>Confirm your fastener order</h1>
+      <p>Enter delivery details and choose a payment method. All prices include GST calculation; shipping is weight-based.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div id="checkoutRoot">
+      <form id="checkoutForm" novalidate>
+        <div class="checkout-grid">
+          <!-- LEFT -->
+          <div class="checkout-left">
+            <div class="panel">
+              <div class="panel-title"><span class="pn">1</span> Delivery details</div>
+              <div class="field-row">
+                <div class="field" id="f-name">
+                  <label>Full name <span class="req">*</span></label>
+                  <input id="cName" type="text" placeholder="e.g. Raj Gautam" autocomplete="name" />
+                  <div class="err">Please enter your name.</div>
+                </div>
+                <div class="field" id="f-phone">
+                  <label>Phone number <span class="req">*</span></label>
+                  <input id="cPhone" type="tel" placeholder="10-digit mobile" autocomplete="tel" />
+                  <div class="err">Enter a valid 10-digit phone number.</div>
+                </div>
+              </div>
+              <div class="field" id="f-email">
+                <label>Email <span class="req">*</span></label>
+                <input id="cEmail" type="email" placeholder="you@workshop.com" autocomplete="email" />
+                <div class="err">Enter a valid email address.</div>
+              </div>
+              <div class="field" id="f-address">
+                <label>Delivery address <span class="req">*</span></label>
+                <textarea id="cAddress" placeholder="Workshop / shop address, street, area"></textarea>
+                <div class="err">Please enter a delivery address.</div>
+              </div>
+              <div class="field-row">
+                <div class="field" id="f-city">
+                  <label>City <span class="req">*</span></label>
+                  <input id="cCity" type="text" placeholder="e.g. Lucknow" />
+                  <div class="err">Please enter your city.</div>
+                </div>
+                <div class="field" id="f-pin">
+                  <label>PIN code <span class="req">*</span></label>
+                  <input id="cPin" type="text" inputmode="numeric" placeholder="6-digit PIN" />
+                  <div class="err">Enter a valid 6-digit PIN code.</div>
+                </div>
+              </div>
+              <div class="field" id="f-mode">
+                <label>Fulfilment</label>
+                <select id="deliveryMode">
+                  <option value="delivery">Home / workshop delivery</option>
+                  <option value="pickup">Store pickup</option>
+                </select>
+                <div class="hint">Shipping is calculated by total weight at checkout.</div>
+              </div>
+              <div class="field" style="margin-bottom:0">
+                <label>Order notes (optional)</label>
+                <textarea id="cNotes" placeholder="Any special instructions, grade preference, or PO number"></textarea>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-title"><span class="pn">2</span> GST / B2B details <span class="small muted" style="font-weight:500;margin-left:auto">optional</span></div>
+              <div class="field-row">
+                <div class="field" style="margin-bottom:0">
+                  <label>GSTIN</label>
+                  <input id="gstin" type="text" placeholder="15-character GSTIN" maxlength="15" style="text-transform:uppercase" />
+                  <div class="hint">Add for input-credit-ready invoicing.</div>
+                </div>
+                <div class="field" style="margin-bottom:0">
+                  <label>Company name</label>
+                  <input id="company" type="text" placeholder="Business / firm name" />
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-title"><span class="pn">3</span> Payment method</div>
+              <div class="pay-methods" id="payMethods">
+                <div class="pay-method selected" data-method="netbanking"><span class="pm-ico">🏦</span><div><div class="pm-name">Net Banking</div><div class="pm-sub">SBI · HDFC · ICICI · AXIS</div></div></div>
+                <div class="pay-method" data-method="upi"><span class="pm-ico">📱</span><div><div class="pm-name">UPI / QR</div><div class="pm-sub">Pay by UPI ID</div></div></div>
+                <div class="pay-method" data-method="card"><span class="pm-ico">💳</span><div><div class="pm-name">Card</div><div class="pm-sub">Debit / Credit (simulated)</div></div></div>
+                <div class="pay-method" data-method="credit"><span class="pm-ico">🧾</span><div><div class="pm-name">B2B Credit</div><div class="pm-sub">30-day terms</div></div></div>
+              </div>
+              <div class="pay-detail" id="payDetail"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <aside class="panel order-summary">
+            <div class="panel-title"><span class="pn">🧾</span> Order summary</div>
+            <div class="summary-items" id="summaryItems"></div>
+            <div class="summary-lines" id="summaryLines"></div>
+            <div class="summary-total"><span class="lbl">Total payable</span><span class="amt" id="summaryTotal">₹0.00</span></div>
+            <button class="btn btn-lg btn-block" type="submit" id="payBtn" style="margin-top:16px">Confirm &amp; Pay</button>
+            <button class="btn btn-ghost btn-sm btn-block" type="button" id="editCart" style="margin-top:10px">Edit cart</button>
+            <div class="trust-row">
+              <span>🔒 Simulated secure checkout</span>
+              <span>🧾 GST invoice</span>
+              <span>🚚 Weight-based shipping</span>
+            </div>
+          </aside>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div id="successRoot" class="hidden">
+      <div class="panel success-card">
+        <div class="success-check">✓</div>
+        <h2>Order confirmed!</h2>
+        <p>Your fasteners are locked in. We'll dispatch them shortly.</p>
+        <div class="txn" id="txnId">TXN-XXXX</div>
+        <p class="small">Booking ID: <b class="accent" id="bookingId">NB-XXXX</b></p>
+        <div class="success-actions">
+          <a class="btn" href="dashboard.html">Go to dashboard</a>
+          <a class="btn btn-ghost" href="index.html#catalog">Continue shopping</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty cart -->
+    <div id="emptyRoot" class="hidden">
+      <div class="empty-state" style="margin:50px 0 80px">
+        <div class="big">🛒</div>
+        <h3>Your cart is empty</h3>
+        <p>Add some fasteners from the catalog before checking out.</p>
+        <a class="btn" style="margin-top:16px" href="index.html#catalog">Browse catalog</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>
